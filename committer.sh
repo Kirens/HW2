@@ -13,8 +13,8 @@ while [ -s data ]; do
         # Update data state
         git add data
         # Commit at date
-        GIT_COMMITTER_DATE=$(date -d "$BASE_DATE +$i days")
-        git commit --date="$GIT_COMMITTER_DATE" -m "Commit pixel no. $1"
+        export GIT_COMMITTER_DATE=$(date -d "$BASE_DATE +$i days")
+        git commit --date="$GIT_COMMITTER_DATE" -m "Commit pixel no. $i"
     fi
     # Remove first char from file
     printf "$(cat data | tail -c +2)" > data
